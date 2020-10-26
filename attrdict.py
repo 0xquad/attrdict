@@ -2,7 +2,7 @@
 
 #from argparse import Namespace
 
-__all__ = ['attrdict']
+__all__ = ['AttrDict', 'fromdict']
 
 class AttrDict(dict):
     def __init__(self, *args, **kwargs):
