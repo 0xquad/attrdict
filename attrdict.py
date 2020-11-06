@@ -28,3 +28,8 @@ def fromdict(d):
     coll = [d]
     walk_obj(coll[0], coll, 0)
     return coll[0]
+
+def fromjsonfile(fn, encoding=None):
+    import json
+    with open(fn, 'r', encoding=encoding) as f:
+        return fromdict(json.load(f))
