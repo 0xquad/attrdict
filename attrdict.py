@@ -8,7 +8,10 @@ class AttrDict(dict):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     def __getattr__(self, k):
-        return self[k]
+        try:
+            return self[k]
+        except KeyError:
+            raise AttributeError(k)
     def __setattr__(self, k, v):
         self[k] = fromdict(v) if type(v) is dict else v
     def __delattr__(self, k):
